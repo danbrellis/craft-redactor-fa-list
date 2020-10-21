@@ -1074,8 +1074,8 @@
             icon = icons[i];
             label = prefix + '-' + icon;
             blkstr.push('<div class="iconList__selectableCont">' +
-              '<input class="iconList__input" type="radio" id="label-' + icon + '" name="icon" value="' + icon +'" />' +
-              '<label class="iconList__selectable" for="label-' + icon + '">' +
+              '<input class="iconList__input" type="radio" id="' + label + '" name="icon" value="' + icon +'" />' +
+              '<label class="iconList__selectable" for="' + label + '">' +
                 '<i class="iconList__icon fas fa-' + icon + '">' +
                   '<span class="iconList__iconName">' + icon + '</span>' +
                 '</i>' +
