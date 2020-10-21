@@ -1021,7 +1021,7 @@
       'faIcons': '<section id="redactor-fa-list" class="redactorFaList">'
         + '<div class="iconFilterInput"><input placeholder="' + Craft.t('redactor-font-awesome', 'Search for icons') + '" id="iconSearchBox" type="text" /></div>'
         + '<form action="">'
-        + '<div class="iconList__selectableCont"><input type="radio" name="icon" value="clearFaList" id="label-clearAll" class="iconList__input" /><label class="iconList__selectable" for="label-clearAll">Clear Font Awesome Icon List</label></div>'
+        + '<div><label class="iconList__selectable">Clear Font Awesome Icon List <input type="radio" name="icon" value="clearFaList" /></label></div>'
         + '<div class="iconList"></div>'
         + '</section>'
     },
@@ -1067,11 +1067,12 @@
     onmodal: {
       faIcons: {
         open: function ($modal, $form) {
+          const prefix = $modal.nodes[0].parentNode.id;
           const blkstr = [];
-          let icon;
+          let icon, label;
           for (let i = 0; i < icons.length; i++) {
             icon = icons[i];
-
+            label = prefix + '-' + icon;
             blkstr.push('<div class="iconList__selectableCont">' +
               '<input class="iconList__input" type="radio" id="label-' + icon + '" name="icon" value="' + icon +'" />' +
               '<label class="iconList__selectable" for="label-' + icon + '">' +
@@ -1082,15 +1083,15 @@
             '</div>');
           }
 
-          $(".iconList").html(blkstr.join(""));
+          $modal.find(".iconList").html(blkstr.join(""));
 
           this.app.selection.save();
 
           // Filter icons
-          $('#iconSearchBox').keyup(function () {
-            var valThis = $(this).val().toLowerCase();
-            $('.iconList .iconList__icon').each(function () {
-              var text = $(this).text().toLowerCase();
+          $('#' + prefix + ' #iconSearchBox').keyup(function () {
+            let valThis = $(this).val().toLowerCase();
+            $('#' + prefix + ' .iconList .iconList__icon').each(function () {
+              let text = $(this).text().toLowerCase();
               (text.indexOf(valThis) == 0) ? $(this).parent().parent().show() : $(this).parent().parent().hide();
             });
           });
