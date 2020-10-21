@@ -13,6 +13,7 @@ Will generate HTML through a simple icon picker:
     <li><span class="fa-li"><i class="fas fa-times"></i></span> List item 3</li>
 </ul>
 ```
+See Font Awesome's [Icons in a List](https://fontawesome.com/how-to-use/on-the-web/styling/icons-in-a-list).
     
 ## Requirements
 This plugin requires Craft CMS 3.1 or later as well as the [Craft Redactor plugin](https://github.com/craftcms/redactor) v2.0 or later.
@@ -30,11 +31,11 @@ cd /path/to/my-project
 composer require cbp/redactor-fa-list
 
 # tell Craft to install the plugin
-./craft install/plugin redactor-fa-list
+./craft plugin/install redactor-fa-list
 ```
 
 ## Adding to your Redactor fields
-Include the plugin in your Redactor config file located in craft/config/redactor/-your-config-file-.json. To do so, add 'fa-list' in the plugins array:
+Include the plugin in your Redactor config file located in craft/config/redactor/-your-config-file-.json. To do so, add `"falist"` in the plugins array:
 
 ```json
 {
@@ -43,4 +44,4 @@ Include the plugin in your Redactor config file located in craft/config/redactor
 }
 ```
 
-**NOTE:** Don't forget to include font awesome on your front-end.
+**NOTE:** Don't forget to include Font Awesome on your front-end.
