@@ -1013,13 +1013,13 @@
   $R.add('plugin', 'falist', {
     translations: {
       en: {
-        "fa-list": "Font Awesome List"
+        "fa-list": "Icon List"
       }
     },
     modals: {
       // this is variable with modal HTML body
-      'faIcons': '<section id="redactor-fa-list" class="redactorFaList">'
-        + '<div class="iconFilterInput"><input placeholder="' + Craft.t('redactor-font-awesome', 'Search for icons') + '" id="iconSearchBox" type="text" /></div>'
+      'faIcons': '<section class="redactorFaList">'
+        + '<div class="iconFilterInput"><input placeholder="' + Craft.t('redactor-font-awesome', 'Search for icons') + '" class="iconSearchBox" type="text" /></div>'
         + '<form action="">'
         + '<div><label class="iconList__selectable">Clear Font Awesome Icon List <input type="radio" name="icon" value="clearFaList" /></label></div>'
         + '<div class="iconList"></div>'
@@ -1088,7 +1088,7 @@
           this.app.selection.save();
 
           // Filter icons
-          $('#' + prefix + ' #iconSearchBox').keyup(function () {
+          $('#' + prefix + ' .iconSearchBox').keyup(function () {
             let valThis = $(this).val().toLowerCase();
             $('#' + prefix + ' .iconList .iconList__icon').each(function () {
               let text = $(this).text().toLowerCase();
