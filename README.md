@@ -45,3 +45,17 @@ Include the plugin in your Redactor config file located in craft/config/redactor
 ```
 
 **NOTE:** Don't forget to include Font Awesome on your front-end.
+
+## Allow Certain Icons
+By default, over 1000 Font Awesome icons are available to be selected from within the field. If you want to limit which icons your authors can select, you can [override the setting value](https://craftcms.com/docs/3.x/extend/plugin-settings.html#overriding-setting-values).
+
+Create a new file `config/redactor-fa-list.php`:
+
+```php
+return [
+    'icons' => [
+        "heart",
+        "star"
+    ]
+];
+```
