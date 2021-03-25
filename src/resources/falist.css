@@ -15,6 +15,7 @@
     margin-block-start: 1em;
     height: 380px;
     overflow: auto;
+    align-items: flex-start;
 }
 
 .iconList__selectableCont {
