@@ -46,7 +46,7 @@ Include the plugin in your Redactor config file located in craft/config/redactor
 
 **NOTE:** Don't forget to include Font Awesome on your front-end.
 
-## Allow Certain Icons
+## Allow Certain Icons and Styles
 By default, over 1000 Font Awesome icons are available to be selected from within the field. If you want to limit which icons your authors can select, you can [override the setting value](https://craftcms.com/docs/3.x/extend/plugin-settings.html#overriding-setting-values).
 
 Create a new file `config/redactor-fa-list.php`:
@@ -57,5 +57,31 @@ return [
         "heart",
         "star"
     ]
+];
+```
+If only a string is provided (as above), it will default to the Solid (`.fas`) styling. To specify styled icons, use a `key => value` pair:
+
+```php
+return [
+    'icons' => [
+        ["heart" => "fal"], // this will be the Light style
+        ["heart" => "fad"], // this will be the Duotone style
+        "star", // this defaults to Solid style
+        ["creative-commons" => "fab"] // this will be the Brands style
+    ]
+];
+```
+
+Since, by default, only Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to add the proper CSS files or a FA Kit JS script in your settings override:
+
+```php
+return [
+    'icons' => [
+        ["alien" => "fad"]
+    ],
+    'scripts' => [
+        ['src' => 'https://kit.fontawesome.com/XXXXXXXXXX.js', 'params' => ['crossorigin' => 'anonymous']]
+    ],
+    'styles' => []
 ];
 ```

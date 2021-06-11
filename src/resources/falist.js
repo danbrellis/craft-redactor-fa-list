@@ -62,21 +62,35 @@
     onmodal: {
       faIcons: {
         open: function ($modal, $form) {
+          const iconTypeMap = {
+            fas: "solid",
+            far: "regular",
+            fal: "light",
+            fad: "duotone",
+            fab: "brand"
+          };
           const prefix = $modal.nodes[0].parentNode.id;
           const blkstr = [];
-          let icon, label;
+          let icon, label, iconName, iconType;
           for (let i = 0; i < FAListIcons.length; i++) {
             icon = FAListIcons[i];
-            label = prefix + '-' + icon;
+            if(typeof icon === "string") {
+              iconName = icon;
+              iconType = "fas";
+            }
+            else if(typeof icon === "object") {
+              iconName = Object.keys(icon)[0];
+              iconType = icon[iconName];
+            }
+            label = prefix + '-' + iconType + '-' + iconName;
             blkstr.push(
-            '<div class="iconList__selectableCont">' +
-              '<input class="iconList__input" type="radio" id="' + label + '" name="icon" value="' + icon +'" />' +
-              '<label class="iconList__selectable" for="' + label + '">' +
-                '<i class="iconList__icon fas fa-' + icon + '">' +
-                  '<span class="iconList__iconName">' + icon + '</span>' +
-                '</i>' +
+              '<div class="iconList__selectableCont">' +
+              '<input class="iconList__input" type="radio" id="' + label + '" name="icon" value="' + iconType + ' fa-' + iconName +'" />' +
+              '<label class="iconList__selectable iconList__label" for="' + label + '">' +
+              '<i class="iconList__icon ' + iconType + ' fa-' + iconName + '"></i>' +
+              '<span class="iconList__iconName">' + iconName + ' (' + iconTypeMap[iconType] + ')</span>' +
               '</label>' +
-            '</div>');
+              '</div>');
           }
 
           $modal.find(".iconList").html(blkstr.join(""));
@@ -104,7 +118,7 @@
             this.unStyle();
           }
           else {
-            const iconHTML = '<span class="fa-li"><i class="fas fa-' + selectedIcon + '"></i></span>';
+            const iconHTML = '<span class="fa-li"><i class="' + selectedIcon + '"></i></span>';
             this.toggle(iconHTML);
           }
         }

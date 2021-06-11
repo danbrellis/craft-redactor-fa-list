@@ -283,7 +283,6 @@ class Settings extends Model
         "minus-square",
         "otter",
         "business-time",
-        "font-awesome-logo-full",
         "glass-martini",
         "stream",
         "thumbs-up",
@@ -1010,6 +1009,8 @@ class Settings extends Model
         "trailer",
         "phone-slash"
     ];
+    public $scripts = [];
+    public $styles = ['//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'];
 
     public function rules()
     {

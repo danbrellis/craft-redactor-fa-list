@@ -2,6 +2,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2021-06-11
+
+### Added
+
+- Support for icon styles (solid, regular, light, duotone, and brand)
+- Setting options to use a FA kit script or other webfonts from a CSS file
+
+### Changed
+
+- Styling for modal icon list
+
 ## [1.0.2] - 2021-03-25
 
 ### Added
