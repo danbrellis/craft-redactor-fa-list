@@ -72,9 +72,10 @@ return [
 ];
 ```
 
-Since, by default, only Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to add the proper CSS files or a FA Kit JS script in your settings override:
+Since, by default, only free Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to add a FA Kit JS script or the proper CSS files in your settings override:
 
 ```php
+//Using FA Kit
 return [
     'icons' => [
         ["alien" => "fad"]
@@ -82,6 +83,25 @@ return [
     'scripts' => [
         ['src' => 'https://kit.fontawesome.com/XXXXXXXXXX.js', 'params' => ['crossorigin' => 'anonymous']]
     ],
-    'styles' => []
+    'styles' => [] //set to empty to override default CDN
+];
+```
+
+```php
+//Using Webfont CDN
+use craft\helpers\App;
+return [
+    'icons' => [
+        ["alien" => "fad"]
+    ],
+    'styles' => [
+        [
+            'src' => "https://pro.fontawesome.com/releases/v5.15.3/css/all.css",
+            'params' => [
+                'integrity' => App::env('FA_INTEGRITY'),
+                'crossorigin' => "anonymous"
+            ]
+        ]
+    ]
 ];
 ```

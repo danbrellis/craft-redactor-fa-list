@@ -2,6 +2,16 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 
+
+### Added
+
+- Adds support for CSS params
+
+### Changed
+
+- Moves script registration code into Redactor field event
+
 ## [1.0.3] - 2021-06-11
 
 ### Added
