@@ -13,6 +13,10 @@ All notable changes to this project will be documented in this file.
 - Moves script registration code into Redactor field event
 - Removes support for FA kits (as of now) due to redactor's buggy autoparse with inline svgs
 
+### Fixed
+
+- Icon search in modal
+
 ## [1.0.3] - 2021-06-11
 
 ### Added

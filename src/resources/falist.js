@@ -100,7 +100,7 @@
           // Filter icons
           $('#' + prefix + ' .iconSearchBox').keyup(function () {
             let valThis = $(this).val().toLowerCase();
-            $('#' + prefix + ' .iconList .iconList__icon').each(function () {
+            $('#' + prefix + ' .iconList .iconList__iconName').each(function () {
               let text = $(this).text().toLowerCase();
               (text.indexOf(valThis) == 0) ? $(this).parent().parent().show() : $(this).parent().parent().hide();
             });
