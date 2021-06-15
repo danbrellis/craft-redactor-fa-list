@@ -1,7 +1,7 @@
 {
   "name": "cbp/redactor-fa-list",
   "description": "Adds a way to add font awesome icons as list markers in Redactor.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "craft-plugin",
   "keywords": ["font awesome", "icon", "list", "redactor"],
   "license": "MIT",
