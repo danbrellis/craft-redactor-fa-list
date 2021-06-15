@@ -36,15 +36,6 @@ class Plugin extends \craft\base\Plugin
         // the includeJs method lets us add js to the bottom of the page
         $view->registerJsVar('FAListIcons', $this->getSettings()->icons, View::POS_HEAD);
 
-        //adds Font Awesome kit script
-        if(!empty($scripts)){
-            foreach($scripts as $script){
-                if(is_array($script) && isset($script['src'])){
-                    $view->registerJsFile($script['src'], isset($script['params']) ? $script['params'] : []);
-                }
-                elseif(is_string($script)) $view->registerJsFile($script);
-            }
-        }
         //adds Font Awesome font styles
         if(!empty($styles)){
             foreach($styles as $style){

@@ -72,27 +72,15 @@ return [
 ];
 ```
 
-Since, by default, only free Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to add a FA Kit JS script or the proper CSS files in your settings override:
-
-```php
-//Using FA Kit
-return [
-    'icons' => [
-        ["alien" => "fad"]
-    ],
-    'scripts' => [
-        ['src' => 'https://kit.fontawesome.com/XXXXXXXXXX.js', 'params' => ['crossorigin' => 'anonymous']]
-    ],
-    'styles' => [] //set to empty to override default CDN
-];
-```
+Since, by default, only free Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to include the proper CSS files in your settings override:
 
 ```php
 //Using Webfont CDN
 use craft\helpers\App;
 return [
     'icons' => [
-        ["alien" => "fad"]
+        ["alien" => "fad"],
+        ["creative-commons" => "fab"]
     ],
     'styles' => [
         [
@@ -101,7 +89,10 @@ return [
                 'integrity' => App::env('FA_INTEGRITY'),
                 'crossorigin' => "anonymous"
             ]
-        ]
+        ],
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css'
     ]
 ];
 ```
+
+**NOTE:** Currently there are too many bugs with using FA Kits with the redactor fields, so support was removed in v1.0.3 of this plugin. However, just because you use the webfont CDN on the backend doesn't mean you can't use the FA Kit script for your frontend :)

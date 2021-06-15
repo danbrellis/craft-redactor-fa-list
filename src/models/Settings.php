@@ -1010,7 +1010,7 @@ class Settings extends Model
         "phone-slash"
     ];
     public $scripts = [];
-    public $styles = ['//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'];
+    public $styles = ['//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'];
 
     public function rules()
     {
