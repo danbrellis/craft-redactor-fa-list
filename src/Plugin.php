@@ -23,6 +23,10 @@ class Plugin extends \craft\base\Plugin
         self::$plugin = $this;
 
         if (!Craft::$app->request->isConsoleRequest && Craft::$app->request->isCpRequest) {
+            $view = Craft::$app->getView();
+            // the registerJsVar method lets us add js to the page
+            $view->registerJsVar('FAListIcons', $this->getSettings()->icons, View::POS_HEAD);
+
             Event::on(Field::class, Field::EVENT_REGISTER_PLUGIN_PATHS, [$this, 'RegisterPluginPath']);
         }
     }
@@ -31,10 +35,7 @@ class Plugin extends \craft\base\Plugin
         $event->paths[] = \dirname(__DIR__) . '/src/resources/';
 
         $view = Craft::$app->getView();
-        $scripts = $this->getSettings()->scripts;
         $styles = $this->getSettings()->styles;
-        // the includeJs method lets us add js to the bottom of the page
-        $view->registerJsVar('FAListIcons', $this->getSettings()->icons, View::POS_HEAD);
 
         //adds Font Awesome font styles
         if(!empty($styles)){

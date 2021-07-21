@@ -95,4 +95,4 @@ return [
 ];
 ```
 
-**NOTE:** Currently there are too many bugs with using FA Kits with the redactor fields, so support was removed in v1.0.3 of this plugin. However, just because you use the webfont CDN on the backend doesn't mean you can't use the FA Kit script for your frontend :)
+**NOTE:** Currently there are too many bugs with using FA Kits with the redactor fields, so support was removed in v1.0.4 of this plugin. However, just because you use the webfont CDN on the backend doesn't mean you can't use the FA Kit script for your frontend :)
