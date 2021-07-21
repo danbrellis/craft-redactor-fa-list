@@ -2,6 +2,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.5] - 2021-07-21
+
+### Fixed
+
+- Reverts change in v1.0.4 (commit 51a8132) which led to incorrectly registered js var
+
 ## [1.0.4] - 2021-06-15
 
 ### Added
