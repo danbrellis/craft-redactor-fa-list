@@ -19,7 +19,9 @@ See Font Awesome's [Icons in a List](https://fontawesome.com/how-to-use/on-the-w
 This plugin requires Craft CMS 3.1 or later as well as the [Craft Redactor plugin](https://github.com/craftcms/redactor) v2.0 or later.
 
 ## Installation
-You can download and install this plugin with Composer.
+Install through the Plugin Store.
+
+Alternatively, you can download and install this plugin with Composer.
 
 Open your terminal and run the following commands:
 
@@ -35,7 +37,7 @@ composer require cbp/redactor-fa-list
 ```
 
 ## Adding to your Redactor fields
-Include the plugin in your Redactor config file located in craft/config/redactor/-your-config-file-.json. To do so, add `"falist"` in the plugins array:
+Include the plugin in your Redactor config file located in `config/redactor/Default.json`. To do so, add `"falist"` in the plugins array:
 
 ```json
 {
@@ -72,7 +74,9 @@ return [
 ];
 ```
 
-Since, by default, only free Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles, you need to include the proper CSS files in your settings override:
+### Specify Versions
+
+Since, by default, only free Solid styles are assumed, the [Font Awesome CSS webfont](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css) is loaded to display icons in the redactor field automatically. If you choose to use other icon styles or target a specific version of FA, you need to include the proper CSS file(s) in your settings override:
 
 ```php
 //Using Webfont CDN

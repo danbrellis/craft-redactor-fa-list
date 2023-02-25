@@ -1,7 +1,7 @@
 {
   "name": "cbp/redactor-fa-list",
   "description": "Adds a way to add font awesome icons as list markers in Redactor.",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "type": "craft-plugin",
   "keywords": ["font awesome", "icon", "list", "redactor"],
   "license": "MIT",
@@ -17,7 +17,8 @@
     "docs": "https://github.com/danbrellis/craft-redactor-fa-list/blob/main/README.md"
   },
   "require": {
-    "craftcms/cms": "^3.1.0",
+    "php": "^8.0",
+    "craftcms/cms": "^4.0",
     "craftcms/redactor": "^2.0"
   },
   "autoload": {
@@ -28,5 +29,16 @@
   "extra": {
     "name": "Redactor FA List",
     "handle": "redactor-fa-list"
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "8.0"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
+    }
   }
 }

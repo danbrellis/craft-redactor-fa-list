@@ -2,6 +2,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.0.0] - 2023-02-24
+
+### Changed
+
+- Converts plugin into a Craft 4.0 plugin with PHP 8.0+ support.
+
 ## [1.0.5] - 2021-07-21
 
 ### Fixed

@@ -6,21 +6,16 @@ use Craft;
 use craft\redactor\events\RegisterPluginPathsEvent;
 use craft\redactor\Field;
 use yii\base\Event;
+use yii\base\InvalidConfigException;
 use yii\web\View;
 
 class Plugin extends \craft\base\Plugin
 {
-    // Static Properties
-    // =========================================================================
-
-    public static $plugin;
-
     // Public Methods
     // =========================================================================
 
     public function init() {
         parent::init();
-        self::$plugin = $this;
 
         if (!Craft::$app->request->isConsoleRequest && Craft::$app->request->isCpRequest) {
             $view = Craft::$app->getView();
@@ -31,7 +26,10 @@ class Plugin extends \craft\base\Plugin
         }
     }
 
-    public function RegisterPluginPath(RegisterPluginPathsEvent $event) {
+  /**
+   * @throws InvalidConfigException
+   */
+  public function RegisterPluginPath(RegisterPluginPathsEvent $event) {
         $event->paths[] = \dirname(__DIR__) . '/src/resources/';
 
         $view = Craft::$app->getView();
@@ -41,14 +39,15 @@ class Plugin extends \craft\base\Plugin
         if(!empty($styles)){
             foreach($styles as $style){
                 if(is_array($style) && isset($style['src'])){
-                    $view->registerCssFile($style['src'], isset($style['params']) ? $style['params'] : []);
+                    $view->registerCssFile($style['src'], $style['params'] ?? []);
                 }
                 elseif(is_string($style)) $view->registerCssFile($style);
             }
         }
     }
 
-    protected function createSettingsModel() {
+    protected function createSettingsModel(): Settings
+    {
         return new Settings();
     }
 }

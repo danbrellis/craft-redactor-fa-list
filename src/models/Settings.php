@@ -6,7 +6,7 @@ use craft\base\Model;
 
 class Settings extends Model
 {
-    public $icons = [
+    public array $icons = [
         "bicycle",
         "church",
         "book-reader",
@@ -1009,10 +1009,10 @@ class Settings extends Model
         "trailer",
         "phone-slash"
     ];
-    public $scripts = [];
-    public $styles = ['//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'];
+    public array $scripts = [];
+    public array $styles = ['//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'];
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['icons'], 'required'],
