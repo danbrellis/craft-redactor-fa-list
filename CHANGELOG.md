@@ -2,6 +2,13 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2023-02-24
+
+### Changed
+
+- Requires craftcms/redactor version ^3.0
+- Sets PHP requirement to 8.0.2
+
 ## [2.0.0] - 2023-02-24
 
 ### Changed
