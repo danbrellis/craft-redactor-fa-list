@@ -1,12 +1,10 @@
-version: "3.7"
-
 services:
   php:
-    image: php:8.0.2-alpine
+    image: php:8.2-alpine
     volumes:
       - .:/var/www/html
   composer:
-    image: composer:2.5.4
-    command: ["composer", "install"]
+    image: composer:2.9.8
+    command: ["composer", "install", "--ignore-platform-req=ext-*"]
     volumes:
       - .:/app
